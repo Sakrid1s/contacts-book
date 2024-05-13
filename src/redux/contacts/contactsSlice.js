@@ -2,6 +2,7 @@ import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { addContact, deleteContact, fetchContacts } from './contactsOps';
 import { filtersSelectors } from '../filters/selectors';
 import { contactsSelectors } from './selectors';
+import { logOut } from '../auth/authOps';
 
 const initialState = {
   items: [],
@@ -44,6 +45,12 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items = action.payload;
+      })
+
+      .addCase(logOut.fulfilled, state => {
+        state.items = [];
+        state.isLoading = false;
+        state.isError = null;
       })
 
       .addMatcher(isPending, pendingReducer)

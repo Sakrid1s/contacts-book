@@ -2,7 +2,7 @@ import './App.css';
 
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchContacts } from './redux/contacts/contactsOps';
+import { refreshUser } from './redux/auth/authOps';
 
 import SearchBox from './components/search-box/SearchBox';
 import ContactForm from './components/contact-form/ContactForm';
@@ -11,7 +11,7 @@ import ContactList from './components/contact-list/ContactList';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
   return (
     <div>
