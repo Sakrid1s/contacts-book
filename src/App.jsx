@@ -17,6 +17,7 @@ const ContactsPage = lazy(() => import('./pages/contactsPage/ContactsPage'));
 import Loader from './components/loader/Loader';
 
 import { authSelectors } from './redux/auth/selectors';
+import Layout from './components/layout/Layout';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,30 +29,32 @@ function App() {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route
-        path="/register"
-        element={
-          <RestrictedRoute
-            retirectTo="/contacts"
-            component={<RegistrationPage />}
-          />
-        }
-      />
-      <Route
-        path="/login"
-        element={
-          <RestrictedRoute retirectTo="/contacts" component={<LoginPage />} />
-        }
-      />
-      <Route
-        path="/contacts"
-        element={
-          <PrivateRoute retirectTo="/login" component={<ContactsPage />} />
-        }
-      />
-    </Routes>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              retirectTo="/contacts"
+              component={<RegistrationPage />}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute retirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute retirectTo="/login" component={<ContactsPage />} />
+          }
+        />
+      </Routes>
+    </Layout>
   );
 }
 
