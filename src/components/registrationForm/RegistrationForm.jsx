@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
+import css from './RegistrationForm.module.css';
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required('Username is required'),
@@ -81,7 +82,7 @@ const RegistrationForm = () => {
           <ErrorMessage name="confirmPassword" component="span" />
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit">Register</button>
         </div>
       </Form>
     </Formik>

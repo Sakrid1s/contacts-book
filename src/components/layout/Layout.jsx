@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { AppBar } from '../appBar/AppBar';
+import AppBar from '../appBar/AppBar';
 
 const Layout = ({ children }) => {
   return (
