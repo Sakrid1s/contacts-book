@@ -1,12 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
-import css from './RegistrationForm.module.css';
+// import css from './RegistrationForm.module.css';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/authOps';
 
 const validationSchema = Yup.object().shape({
-  username: Yup.string().required('Username is required'),
+  name: Yup.string().required('Username is required'),
   email: Yup.string()
     .email('Invalid email address')
     .required('Email is required'),
@@ -14,32 +14,26 @@ const validationSchema = Yup.object().shape({
     .required('Password is required')
     .min(6, 'Password must be at least 6 characters long')
     .max(50, 'Password must be less then 50 characters long!'),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Passwords must match')
-    .required('Confirm password is required'),
 });
 
 const initialValues = {
-  username: '',
+  name: '',
   email: '',
   password: '',
-  confirmPassword: '',
 };
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const userNameFieldId = nanoid();
+  const nameFieldId = nanoid();
   const emailFieldId = nanoid();
   const passwordFieldId = nanoid();
-  const confirmPasswordFieldId = nanoid();
 
   const handleSubmit = (values, actions) => {
-    const { username, email, password, confirmPassword } = values;
+    const { name, email, password } = values;
     const registerUser = {
-      username,
+      name,
       email,
       password,
-      confirmPassword,
     };
     console.log(registerUser);
     dispatch(register(registerUser));
@@ -54,14 +48,14 @@ const RegistrationForm = () => {
     >
       <Form>
         <div>
-          <label htmlFor={userNameFieldId}>Username</label>
+          <label htmlFor={nameFieldId}>Username</label>
           <Field
-            id={userNameFieldId}
+            id={nameFieldId}
             type="text"
-            name="username"
+            name="name"
             placeholder="Username..."
           />
-          <ErrorMessage name="username" component="span" />
+          <ErrorMessage name="name" component="span" />
         </div>
         <div>
           <label htmlFor={emailFieldId}>Email</label>
@@ -82,16 +76,6 @@ const RegistrationForm = () => {
             placeholder="Password..."
           />
           <ErrorMessage name="password" component="span" />
-        </div>
-        <div>
-          <label htmlFor={confirmPasswordFieldId}>Confirm Password</label>
-          <Field
-            id={confirmPasswordFieldId}
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm password..."
-          />
-          <ErrorMessage name="confirmPassword" component="span" />
         </div>
         <div>
           <button type="submit">Register</button>
