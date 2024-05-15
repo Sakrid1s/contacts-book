@@ -1,12 +1,17 @@
 import { Suspense } from 'react';
 import AppBar from '../appBar/AppBar';
+import Container from '../container/Container';
 
 const Layout = ({ children }) => {
   return (
-    <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
-      <AppBar />
-      <Suspense fallback={null}>{children}</Suspense>
+    // <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
+    <div>
+      <Container>
+        <AppBar />
+        <Suspense fallback={null}>{children}</Suspense>
+      </Container>
     </div>
+    // </div>
   );
 };
 

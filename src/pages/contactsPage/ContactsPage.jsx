@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from '../../redux/contacts/contactsOps';
 
+import Section from '../../components/section/Section';
+import Container from '../../components/container/Container';
 import SearchBox from '../../components/search-box/SearchBox';
 import ContactForm from '../../components/contact-form/ContactForm';
 import ContactList from '../../components/contact-list/ContactList';
@@ -11,13 +13,16 @@ const ContactsPage = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      <ContactList />
-    </div>
+    <Section>
+      <Container>
+        <h1>Phonebook</h1>
+        <ContactForm />
+        <SearchBox />
+        <ContactList />
+      </Container>
+    </Section>
   );
 };
 
