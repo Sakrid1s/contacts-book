@@ -30,13 +30,19 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (values, actions) => {
     const { name, email, password } = values;
-    const registerUser = {
-      name,
-      email,
-      password,
-    };
+    // const registerUser = {
+    //   name,
+    //   email,
+    //   password,
+    // };
     try {
-      await dispatch(register(registerUser));
+      await dispatch(
+        register({
+          name,
+          email,
+          password,
+        })
+      );
       actions.resetForm();
     } catch (error) {
       console.error('Помилка входу:', error);
