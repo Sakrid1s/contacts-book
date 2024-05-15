@@ -2,6 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 import css from './RegistrationForm.module.css';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/authOps';
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required('Username is required'),
@@ -25,13 +27,23 @@ const initialValues = {
 };
 
 const RegistrationForm = () => {
+  const dispatch = useDispatch();
   const userNameFieldId = nanoid();
   const emailFieldId = nanoid();
   const passwordFieldId = nanoid();
   const confirmPasswordFieldId = nanoid();
 
-  const handleSubmit = values => {
-    console.log(values);
+  const handleSubmit = (values, actions) => {
+    const { username, email, password, confirmPassword } = values;
+    const registerUser = {
+      username,
+      email,
+      password,
+      confirmPassword,
+    };
+    console.log(registerUser);
+    dispatch(register(registerUser));
+    actions.resetForm();
   };
 
   return (
