@@ -2,6 +2,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { logIn } from '../../redux/auth/authOps';
 // import css from './LoginForm.module.css';
 
 const validationSchema = Yup.object().shape({
@@ -24,15 +25,18 @@ const LoginForm = () => {
   const emailFieldId = nanoid();
   const passwordFieldId = nanoid();
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     const { email, password } = values;
     const logInUser = {
       email,
       password,
     };
-
-    console.log(dispatch(logInUser));
-    actions.resetForm();
+    try {
+      await dispatch(logIn(logInUser));
+      actions.resetForm();
+    } catch (error) {
+      console.error('Помилка реєстрації:', error);
+    }
   };
 
   return (

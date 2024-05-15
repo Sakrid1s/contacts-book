@@ -28,16 +28,19 @@ const RegistrationForm = () => {
   const emailFieldId = nanoid();
   const passwordFieldId = nanoid();
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     const { name, email, password } = values;
     const registerUser = {
       name,
       email,
       password,
     };
-    console.log(registerUser);
-    dispatch(register(registerUser));
-    actions.resetForm();
+    try {
+      await dispatch(register(registerUser));
+      actions.resetForm();
+    } catch (error) {
+      console.error('Помилка входу:', error);
+    }
   };
 
   return (
