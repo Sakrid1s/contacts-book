@@ -1,12 +1,33 @@
 .container {
-  min-height: 'calc(100vh - 50px)';
-  display: 'flex';
-  align-items: 'center';
-  justify-content: 'center';
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .title {
   font-weight: 500;
   font-size: 48;
-  text-align: 'center';
+  text-align: center;
+}
+
+.linksContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.linkWrapper {
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.linkWrapper:hover {
+  background-color: #f0f0f0;
+}
+
+.icon {
+  font-size: 24px;
 }
