@@ -1,9 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
-// import css from './RegistrationForm.module.css';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/authOps';
+import css from './RegistrationForm.module.css';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required('Username is required'),
@@ -30,11 +30,6 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (values, actions) => {
     const { name, email, password } = values;
-    // const registerUser = {
-    //   name,
-    //   email,
-    //   password,
-    // };
     try {
       await dispatch(
         register({
@@ -45,7 +40,7 @@ const RegistrationForm = () => {
       );
       actions.resetForm();
     } catch (error) {
-      console.error('Помилка входу:', error);
+      console.error('Error logging in:', error);
     }
   };
 
@@ -55,8 +50,8 @@ const RegistrationForm = () => {
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
     >
-      <Form>
-        <div>
+      <Form className={css.registrationFormContainer}>
+        <div className={css.registrationInput}>
           <label htmlFor={nameFieldId}>Username</label>
           <Field
             id={nameFieldId}
@@ -66,7 +61,7 @@ const RegistrationForm = () => {
           />
           <ErrorMessage name="name" component="span" />
         </div>
-        <div>
+        <div className={css.registrationInput}>
           <label htmlFor={emailFieldId}>Email</label>
           <Field
             id={emailFieldId}
@@ -76,7 +71,7 @@ const RegistrationForm = () => {
           />
           <ErrorMessage name="email" component="span" />
         </div>
-        <div>
+        <div className={css.registrationInput}>
           <label htmlFor={passwordFieldId}>Password</label>
           <Field
             id={passwordFieldId}
