@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { register } from '../../redux/auth/authOps';
+import { register } from '../../redux/auth/operations';
 import css from './RegistrationForm.module.css';
 
 const validationSchema = Yup.object().shape({
