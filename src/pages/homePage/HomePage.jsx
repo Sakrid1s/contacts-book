@@ -8,11 +8,14 @@ const HomePage = () => {
       <DocumentTitle>Home</DocumentTitle>
       <div className={css.HomePageContainer}>
         <h1 className={css.title}>
-          Contacts book welcome page{' '}
+          Welcome to contacts book application{' '}
           <span role="img" aria-label="Greeting icon">
             💁‍♀️
           </span>
         </h1>
+        <h2 className={css.description}>
+          If you want to know more about me - follow the links:
+        </h2>
         <div className={css.linksContainer}>
           <a
             href="https://github.com/Sakrid1s"
