@@ -1,9 +1,12 @@
+// LoginForm.js
+
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { logIn } from '../../redux/auth/authOps';
-// import css from './LoginForm.module.css';
+
+import css from './LoginForm.module.css';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -40,37 +43,39 @@ const LoginForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={validationSchema}
-    >
-      <Form>
-        <div>
-          <label htmlFor={emailFieldId}>Email</label>
-          <Field
-            id={emailFieldId}
-            type="email"
-            name="email"
-            placeholder="Email..."
-          />
-          <ErrorMessage name="email" component="span" />
-        </div>
-        <div>
-          <label htmlFor={passwordFieldId}>Password</label>
-          <Field
-            id={passwordFieldId}
-            type="password"
-            name="password"
-            placeholder="Password..."
-          />
-          <ErrorMessage name="password" component="span" />
-        </div>
-        <div>
-          <button type="submit">LogIn</button>
-        </div>
-      </Form>
-    </Formik>
+    <div className={css.logInFormContainer}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
+        <Form>
+          <div className={css.logInInput}>
+            <label htmlFor={emailFieldId}>Email</label>
+            <Field
+              id={emailFieldId}
+              type="email"
+              name="email"
+              placeholder="Email..."
+            />
+            <ErrorMessage name="email" component="span" />
+          </div>
+          <div className={css.logInInput}>
+            <label htmlFor={passwordFieldId}>Password</label>
+            <Field
+              id={passwordFieldId}
+              type="password"
+              name="password"
+              placeholder="Password..."
+            />
+            <ErrorMessage name="password" component="span" />
+          </div>
+          <div>
+            <button type="submit">LogIn</button>
+          </div>
+        </Form>
+      </Formik>
+    </div>
   );
 };
 

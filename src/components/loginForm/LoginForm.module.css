@@ -1,0 +1,33 @@
+/* LoginForm.css */
+
+.logInFormContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logInFormContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logInFormContainer label {
+  margin-bottom: 0.5rem;
+}
+
+.logInFormContainer input,
+.logInFormContainer button {
+  margin-bottom: 1rem;
+}
+
+.logInFormContainer span {
+  color: red;
+  margin-bottom: 0.5rem;
+}
+
+.logInInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
