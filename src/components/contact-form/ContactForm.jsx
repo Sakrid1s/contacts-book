@@ -7,11 +7,11 @@ import { addContact } from '../../redux/contacts/operations';
 
 const AddUserSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, 'Name must be at least 8 characters long!')
+    .min(3, 'Name must be at least 3 characters long!')
     .max(50, 'Name must be less then 50 characters long!')
     .required('Name is required'),
   number: Yup.string()
-    .min(3, 'Number must be at least 8 characters long!')
+    .min(3, 'Number must be at least 3 characters long!')
     .max(50, 'Number must be less then 50 characters long!')
     .required('Number is required'),
 });
