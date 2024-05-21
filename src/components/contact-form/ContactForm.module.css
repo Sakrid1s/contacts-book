@@ -1,27 +1,76 @@
-.errorMessage {
-  color: red;
-}
-
 .contactForm {
   display: flex;
   flex-direction: column;
-  border: 1px solid #111111;
-  border-radius: 5px;
-  width: 250px;
-  margin: 20px auto;
-  padding: 15px;
-}
-
-.formInput {
-  outline: none;
-}
-
-.formBtn {
-  width: 203px;
-  margin: auto;
-  padding: 5px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .formLabel {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formLabelContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.formLabelText {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.formInput {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.formInput:focus {
+  border-color: #ff6b6b;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.5);
+}
+
+.errorMessage {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.formBtn {
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.formBtn:hover {
+  background-color: #ff4c4c;
+}
+
+.formBtn:active {
+  background-color: #ff3a3a;
+}
+
+.formBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.5);
 }

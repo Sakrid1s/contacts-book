@@ -9,6 +9,8 @@ import SearchBox from '../../components/search-box/SearchBox';
 import ContactForm from '../../components/contact-form/ContactForm';
 import ContactList from '../../components/contact-list/ContactList';
 
+import css from './ContactsPage.module.css';
+
 const ContactsPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,7 +21,7 @@ const ContactsPage = () => {
     <Section>
       <Container>
         <DocumentTitle>Contacts</DocumentTitle>
-        <h1>Phonebook</h1>
+        <h1 className={css.contactsPageTitle}>Phonebook</h1>
         <ContactForm />
         <SearchBox />
         <ContactList />

@@ -7,13 +7,13 @@ import { addContact } from '../../redux/contacts/operations';
 
 const AddUserSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, 'Too short!')
-    .max(50, 'Too long!')
-    .required('Required'),
+    .min(3, 'Name must be at least 8 characters long!')
+    .max(50, 'Name must be less then 50 characters long!')
+    .required('Name is required'),
   number: Yup.string()
-    .min(3, 'Too short!')
-    .max(50, 'Too long!')
-    .required('Required'),
+    .min(3, 'Number must be at least 8 characters long!')
+    .max(50, 'Number must be less then 50 characters long!')
+    .required('Number is required'),
 });
 
 const initialValues = {
@@ -45,8 +45,8 @@ const ContactForm = () => {
     >
       <Form className={css.contactForm}>
         <label htmlFor={nameFieldId} className={css.formLabel}>
-          <div>
-            <p>Name</p>
+          <div className={css.formLabelContainer}>
+            <p className={css.formLabelText}>Name</p>
             <Field
               id={nameFieldId}
               name="name"
@@ -61,8 +61,8 @@ const ContactForm = () => {
           />
         </label>
         <label htmlFor={numberFieldId} className={css.formLabel}>
-          <div>
-            <p>Number</p>
+          <div className={css.formLabelContainer}>
+            <p className={css.formLabelText}>Number</p>
             <Field
               type="text"
               id={numberFieldId}
