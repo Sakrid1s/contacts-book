@@ -23,7 +23,7 @@ const ContactList = () => {
           ))}
         </div>
       ) : (
-        <p>There are no contacts</p>
+        <p className={css.contactListError}>There are no contacts</p>
       )}
     </>
   );
