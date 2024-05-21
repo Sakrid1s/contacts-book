@@ -1,10 +1,12 @@
 import { useSelector } from 'react-redux';
-import Contact from '../contact/Contact';
-import css from './ContactList.module.css';
 import { selectFilteredContacts } from '../../redux/contacts/contactsSlice';
 import { contactsSelectors } from '../../redux/contacts/selectors';
+
+import Contact from '../contact/Contact';
 import Loader from '../loader/Loader';
 import ErrorMessage from '../error/ErrorMessage';
+
+import css from './ContactList.module.css';
 
 const ContactList = () => {
   const { isError, isLoading } = useSelector(contactsSelectors.selectContact);

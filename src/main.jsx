@@ -5,8 +5,9 @@ import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store.js';
-import 'modern-normalize';
 import App from './App.jsx';
+import 'modern-normalize';
+
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

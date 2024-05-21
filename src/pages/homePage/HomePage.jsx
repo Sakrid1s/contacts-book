@@ -1,5 +1,6 @@
 import DocumentTitle from '../../components/documentTitle/DocumentTitle';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+
 import css from './HomePage.module.css';
 
 const HomePage = () => {

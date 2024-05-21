@@ -1,7 +1,7 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { nanoid } from 'nanoid';
 import { logIn } from '../../redux/auth/operations';
 
 import css from './LoginForm.module.css';

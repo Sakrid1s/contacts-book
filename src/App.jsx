@@ -1,11 +1,15 @@
-import './App.css';
-
 import { lazy, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from './redux/auth/operations';
-import { Routes, Route } from 'react-router-dom';
+import { authSelectors } from './redux/auth/selectors';
+
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
+import Loader from './components/loader/Loader';
+import Layout from './components/layout/Layout';
+
+import './App.css';
 
 const HomePage = lazy(() => import('./pages/homePage/HomePage'));
 const RegistrationPage = lazy(() =>
@@ -13,11 +17,6 @@ const RegistrationPage = lazy(() =>
 );
 const LoginPage = lazy(() => import('./pages/loginPage/LoginPage'));
 const ContactsPage = lazy(() => import('./pages/contactsPage/ContactsPage'));
-
-import Loader from './components/loader/Loader';
-
-import { authSelectors } from './redux/auth/selectors';
-import Layout from './components/layout/Layout';
 
 function App() {
   const dispatch = useDispatch();
