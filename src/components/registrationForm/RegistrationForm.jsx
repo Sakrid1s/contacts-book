@@ -45,47 +45,75 @@ const RegistrationForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={validationSchema}
-    >
-      <Form className={css.registrationFormContainer}>
-        <div className={css.registrationInput}>
-          <label htmlFor={nameFieldId}>Username</label>
-          <Field
-            id={nameFieldId}
-            type="text"
-            name="name"
-            placeholder="Username..."
-          />
-          <ErrorMessage name="name" component="span" />
-        </div>
-        <div className={css.registrationInput}>
-          <label htmlFor={emailFieldId}>Email</label>
-          <Field
-            id={emailFieldId}
-            type="email"
-            name="email"
-            placeholder="Email..."
-          />
-          <ErrorMessage name="email" component="span" />
-        </div>
-        <div className={css.registrationInput}>
-          <label htmlFor={passwordFieldId}>Password</label>
-          <Field
-            id={passwordFieldId}
-            type="password"
-            name="password"
-            placeholder="Password..."
-          />
-          <ErrorMessage name="password" component="span" />
-        </div>
-        <div>
-          <button type="submit">Register</button>
-        </div>
-      </Form>
-    </Formik>
+    <div className={css.registrationFormContainer}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
+        <Form className={css.registrationForm}>
+          <div className={css.registrationInputContainer}>
+            <label htmlFor={nameFieldId} className={css.registrationFormLabel}>
+              Username
+            </label>
+            <Field
+              className={css.registrationFormInput}
+              id={nameFieldId}
+              type="text"
+              name="name"
+              placeholder="Username..."
+            />
+            <ErrorMessage
+              name="name"
+              component="span"
+              className={css.registrationFormSpan}
+            />
+          </div>
+          <div className={css.registrationInputContainer}>
+            <label htmlFor={emailFieldId} className={css.registrationFormLabel}>
+              Email
+            </label>
+            <Field
+              className={css.registrationFormInput}
+              id={emailFieldId}
+              type="email"
+              name="email"
+              placeholder="Email..."
+            />
+            <ErrorMessage
+              name="email"
+              component="span"
+              className={css.registrationFormSpan}
+            />
+          </div>
+          <div className={css.registrationInputContainer}>
+            <label
+              htmlFor={passwordFieldId}
+              className={css.registrationFormLabel}
+            >
+              Password
+            </label>
+            <Field
+              className={css.registrationFormInput}
+              id={passwordFieldId}
+              type="password"
+              name="password"
+              placeholder="Password..."
+            />
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={css.registrationFormSpan}
+            />
+          </div>
+          <div>
+            <button type="submit" className={css.registrationFormBtn}>
+              Register
+            </button>
+          </div>
+        </Form>
+      </Formik>
+    </div>
   );
 };
 

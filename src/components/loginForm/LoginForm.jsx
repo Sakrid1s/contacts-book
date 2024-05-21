@@ -47,29 +47,45 @@ const LoginForm = () => {
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
-        <Form>
-          <div className={css.logInInput}>
-            <label htmlFor={emailFieldId}>Email</label>
+        <Form className={css.logInForm}>
+          <div className={css.logInInputContainer}>
+            <label htmlFor={emailFieldId} className={css.logInInputLabel}>
+              Email
+            </label>
             <Field
+              className={css.logInInput}
               id={emailFieldId}
               type="email"
               name="email"
               placeholder="Email..."
             />
-            <ErrorMessage name="email" component="span" />
+            <ErrorMessage
+              name="email"
+              component="span"
+              className={css.logInInputSpan}
+            />
           </div>
-          <div className={css.logInInput}>
-            <label htmlFor={passwordFieldId}>Password</label>
+          <div className={css.logInInputContainer}>
+            <label htmlFor={passwordFieldId} className={css.logInInputLabel}>
+              Password
+            </label>
             <Field
+              className={css.logInInput}
               id={passwordFieldId}
               type="password"
               name="password"
               placeholder="Password..."
             />
-            <ErrorMessage name="password" component="span" />
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={css.logInInputSpan}
+            />
           </div>
           <div>
-            <button type="submit">LogIn</button>
+            <button type="submit" className={css.logInFormBtn}>
+              LogIn
+            </button>
           </div>
         </Form>
       </Formik>
