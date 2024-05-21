@@ -13,10 +13,10 @@ const Contact = ({ contact }) => {
   return (
     <div className={css.contactItem}>
       <div>
-        <p>
+        <p className={css.contactItemText}>
           <FaPhoneAlt /> {contact.name}
         </p>
-        <p>
+        <p className={css.contactItemText}>
           <IoPerson /> {contact.number}
         </p>
       </div>
