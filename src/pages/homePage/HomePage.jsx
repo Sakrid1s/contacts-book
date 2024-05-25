@@ -14,9 +14,12 @@ const HomePage = () => {
             💁‍♀️
           </span>
         </h1>
-        <h2 className={css.description}>
-          If you want to know more about me - follow the links:
+        <h2>
+          To discover more features of the application - register or login
         </h2>
+        <p className={css.description}>
+          If you want to know more about me - follow the links:
+        </p>
         <div className={css.linksContainer}>
           <a
             href="https://github.com/Sakrid1s"
